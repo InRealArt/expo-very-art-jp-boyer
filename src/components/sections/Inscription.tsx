@@ -100,7 +100,7 @@ export default function Inscription() {
               <textarea id="f-msg" name="message" rows={3} maxLength={2000} className="field" />
             </div>
             <div className="flex items-start gap-3 text-caption text-ink-soft">
-              <input id="f-rgpd" name="consentement" type="checkbox" value="oui" required className="mt-1 accent-accent" />
+              <input id="f-rgpd" name="consentement" type="checkbox" required className="mt-1 accent-accent" />
               <label htmlFor="f-rgpd">J’accepte que mes données soient utilisées pour répondre à ma demande.</label>
             </div>
             <span hidden aria-hidden="true">Ne pas remplir</span>

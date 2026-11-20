@@ -54,8 +54,8 @@ const ATTRIBUTE_NAME = /^[A-Z][A-Z0-9_]*$/
 
 export interface ContactInput {
   email: string
-  /** Brevo attribute name (upper case) to value. Empty values are left out. */
-  attributes: Record<string, string>
+  /** Brevo attribute name (upper case) to value. A boolean goes to a Brevo boolean attribute; empty text is left out. */
+  attributes: Record<string, string | boolean>
   listId: number
 }
 
@@ -78,9 +78,13 @@ export async function upsertContact(c: ContactInput, o: ContactOptions): Promise
   if (!EMAIL.test(c.email) || hasLineBreak(c.email)) throw new Error('invalid contact address')
   if (!Number.isInteger(c.listId) || c.listId <= 0) throw new Error('invalid list id')
 
-  const attributes: Record<string, string> = {}
+  const attributes: Record<string, string | boolean> = {}
   for (const [name, raw] of Object.entries(c.attributes)) {
     if (!ATTRIBUTE_NAME.test(name)) throw new Error(`invalid attribute name ${name}`)
+    if (typeof raw === 'boolean') {
+      attributes[name] = raw
+      continue
+    }
     const value = name === 'SMS' ? normalizePhone(raw) : raw.trim()
     if (value) attributes[name] = value
   }
@@ -92,7 +96,7 @@ export async function upsertContact(c: ContactInput, o: ContactOptions): Promise
     signal: AbortSignal.timeout(TIMEOUT_MS),
   })
   if (!res.ok) {
-    // Brevo's error body names the refused attribute but holds no visitor data.
+    // Brevo explains refusals (unknown attribute, invalid list): keep that text for the operator's logs. It holds no visitor data.
     const detail = await res.json().then((b: { message?: string }) => b.message ?? '', () => '')
     throw new Error(`brevo contact request failed with status ${res.status} ${detail}`.trim())
   }

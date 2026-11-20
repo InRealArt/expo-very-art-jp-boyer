@@ -4,18 +4,24 @@ import { z } from 'zod'
 // NEXT_PUBLIC_TURNSTILE_SITE_KEY is legitimately public, so only secret-style names are refused.
 const SECRET_LOOKING = /SECRET|PRIVATE|PASSWORD|TOKEN|API_KEY/
 
-const serverEnvSchema = z.object({
-  TURNSTILE_SECRET_KEY: z.string().min(1),
-  BREVO_API_KEY: z.string().min(1),
-  BREVO_SENDER_EMAIL: z.email(),
-  BREVO_SENDER_NAME: z.string().min(1).default('Site'),
-  CONTACT_TO: z.email(),
-  /** Brevo list that receives the contacts of the forms. Optional: without it no contact is created. */
-  BREVO_CONTACTS_LIST_ID: z.coerce.number().int().positive().optional(),
-  NEXT_PUBLIC_TURNSTILE_SITE_KEY: z.string().optional(),
-  /** Hostname Turnstile must report; set to "localhost" in development. */
-  SITE_HOSTNAME: z.string().min(1).optional(),
-})
+const serverEnvSchema = z
+  .object({
+    TURNSTILE_SECRET_KEY: z.string().min(1),
+    BREVO_API_KEY: z.string().min(1),
+    /** Notification mail: sent only when both the sender and the recipient are set. */
+    BREVO_SENDER_EMAIL: z.email().optional(),
+    BREVO_SENDER_NAME: z.string().min(1).default('Site'),
+    CONTACT_TO: z.email().optional(),
+    /** Brevo list that receives the visitors of the forms as contacts. */
+    BREVO_CONTACTS_LIST_ID: z.coerce.number().int().positive().optional(),
+    NEXT_PUBLIC_TURNSTILE_SITE_KEY: z.string().optional(),
+    /** Hostname Turnstile must report; set to "localhost" in development. */
+    SITE_HOSTNAME: z.string().min(1).optional(),
+  })
+  // A form must reach someone: by mail, by Brevo contact, or both.
+  .refine((e) => Boolean((e.BREVO_SENDER_EMAIL && e.CONTACT_TO) || e.BREVO_CONTACTS_LIST_ID), {
+    message: 'set BREVO_CONTACTS_LIST_ID, or BREVO_SENDER_EMAIL with CONTACT_TO',
+  })
 
 export type ServerEnv = z.infer<typeof serverEnvSchema>
 

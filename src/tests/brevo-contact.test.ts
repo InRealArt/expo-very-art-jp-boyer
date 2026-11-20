@@ -93,6 +93,35 @@ describe('makeSender with a contact', () => {
     expect(calls).toHaveLength(1)
   })
 
+  it('turns a ticked consent box into true and an unticked one into false', async () => {
+    const { calls, fetchImpl } = recorder()
+    const withBox = { ...contact, attributes: { ...contact.attributes, consentement: 'CONSENTEMENT' }, checkboxes: ['consentement'] }
+    await makeSender({ ...base, fetchImpl, contact: withBox })({ ...data, consentement: 'on' })
+    await makeSender({ ...base, fetchImpl, contact: withBox })({ ...data })
+    const consent = calls.filter((c) => c.url.endsWith('/contacts')).map((c) => (c.body.attributes as Record<string, unknown>).CONSENTEMENT)
+    expect(consent).toEqual([true, false])
+  })
+
+  describe('without a notification mail', () => {
+    const noMail = { apiKey: 'k', subject: 'x' }
+
+    it('sends only the contact', async () => {
+      const { calls, fetchImpl } = recorder()
+      await makeSender({ ...noMail, fetchImpl, contact })(data)
+      expect(calls.map((c) => c.url)).toEqual(['https://api.brevo.com/v3/contacts'])
+    })
+
+    it('fails the request when the contact fails: the contact is the request', async () => {
+      const { fetchImpl } = recorder(() => 400)
+      await expect(makeSender({ ...noMail, fetchImpl, contact })(data)).rejects.toThrow(/400/)
+    })
+
+    it('fails when there is neither mail nor list', async () => {
+      const { fetchImpl } = recorder()
+      await expect(makeSender({ ...noMail, fetchImpl })(data)).rejects.toThrow()
+    })
+  })
+
   it('does not fail the visitor when the contact request fails, and logs without the address', async () => {
     const log = vi.spyOn(console, 'error').mockImplementation(() => {})
     const { fetchImpl } = recorder((url) => (url.endsWith('/contacts') ? 400 : 201))

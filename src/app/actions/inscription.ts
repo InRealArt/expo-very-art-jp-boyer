@@ -37,19 +37,20 @@ export async function submitInscription(_previous: FormState, formData: FormData
     schema,
     turnstile: {
       action: "inscription",
-      hostname: env.SITE_HOSTNAME ?? "boyer-sculpture.fr",
+      // The site and its www form; in development the page is served from localhost too. SITE_HOSTNAME overrides, commas separate several names.
+      hostname: env.SITE_HOSTNAME ?? (process.env.NODE_ENV === 'production' ? "boyer-sculpture.fr,www.boyer-sculpture.fr" : "boyer-sculpture.fr,www.boyer-sculpture.fr,localhost"),
       secret: env.TURNSTILE_SECRET_KEY,
     },
     limiter,
     send: makeSender({
       apiKey: env.BREVO_API_KEY,
-      sender: { email: env.BREVO_SENDER_EMAIL, name: env.BREVO_SENDER_NAME },
+      sender: env.BREVO_SENDER_EMAIL ? { email: env.BREVO_SENDER_EMAIL, name: env.BREVO_SENDER_NAME } : undefined,
       to: env.CONTACT_TO,
       subject: "Nouvelle demande depuis le site",
       replyToField: "email",
       labels: {"prenom":"Prénom","nom":"Nom","email":"E-mail","telephone":"Téléphone","demande":"Votre demande","personnes":"Nombre de personnes","message":"Message (facultatif)","consentement":"J'accepte que mes données soient utilisées pour répondre à ma demande."},
       checkboxes: ["consentement"],
-      contact: { listId: env.BREVO_CONTACTS_LIST_ID, emailField: "email", attributes: {"prenom":"FIRSTNAME","nom":"LASTNAME","telephone":"TELEPHONE","demande":"DEMANDE","personnes":"NB_ACCOMPAGNANTS","message":"MESSAGE"} },
+      contact: { listId: env.BREVO_CONTACTS_LIST_ID, emailField: "email", attributes: {"prenom":"FIRSTNAME","nom":"LASTNAME","telephone":"TELEPHONE","demande":"DEMANDE","personnes":"NB_ACCOMPAGNANTS","message":"MESSAGE","consentement":"CONSENTEMENT"}, checkboxes: ["consentement"] },
     }),
   })
   return result.ok ? { status: 'success' } : { status: 'error', error: result.error }

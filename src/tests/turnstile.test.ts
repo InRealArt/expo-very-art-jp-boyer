@@ -43,6 +43,15 @@ describe('verifyTurnstile', () => {
     expect(r).toEqual({ ok: false, reason: 'action-mismatch' })
   })
 
+  it('accepts any of several allowed hostnames, separated by commas', async () => {
+    const expectedHostname = 'example.com, www.example.com ,localhost'
+    for (const hostname of ['example.com', 'www.example.com', 'localhost']) {
+      expect(await verifyTurnstile({ ...base, expectedHostname, fetchImpl: json({ ...good, hostname }) })).toEqual({ ok: true })
+    }
+    const r = await verifyTurnstile({ ...base, expectedHostname, fetchImpl: json({ ...good, hostname: 'evil.test' }) })
+    expect(r).toEqual({ ok: false, reason: 'hostname-mismatch' })
+  })
+
   it('refuses a different hostname', async () => {
     const r = await verifyTurnstile({ ...base, fetchImpl: json({ ...good, hostname: 'evil.test' }) })
     expect(r).toEqual({ ok: false, reason: 'hostname-mismatch' })

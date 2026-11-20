@@ -36,23 +36,42 @@ export interface ContactSync {
   emailField: string
   /** Submitted field name to Brevo attribute name (for instance prenom to PRENOM). */
   attributes: Record<string, string>
+  /** Fields of the attributes above that are consent boxes: they become true or false, for a Brevo boolean attribute. */
+  checkboxes?: string[]
 }
 
-/** Ready-made `send` for handleForm: compose, escape, then post through Brevo. */
-export function makeSender(
-  o: ComposeOptions & MailOptions & { contact?: ContactSync },
-): (data: Record<string, string>) => Promise<void> {
-  const { apiKey, sender, fetchImpl, contact, ...compose } = o
+export type SenderOptions = Omit<ComposeOptions, 'to'> &
+  Omit<MailOptions, 'sender'> & {
+    /** Notification mail. Without a recipient or a sender no mail is sent. */
+    to?: string
+    sender?: MailOptions['sender']
+    contact?: ContactSync
+  }
+
+/**
+ * Ready-made `send` for handleForm. The notification mail (when configured) goes first, then the Brevo contact.
+ * With a mail, a failed contact is only logged: the team already has the request.
+ * Without one, the contact is the request itself, so a failure is a failed request.
+ */
+export function makeSender(o: SenderOptions): (data: Record<string, string>) => Promise<void> {
+  const { apiKey, sender, fetchImpl, contact, to, ...compose } = o
+  const mail = to && sender ? { to, sender } : null
   return async (data) => {
-    await sendMail(composeMail(data, compose), { apiKey, sender, fetchImpl })
-    if (!contact?.listId) return
-    // The team already has the notification: a Brevo contact failure is logged, not shown to the visitor.
+    if (mail) await sendMail(composeMail(data, { ...compose, to: mail.to }), { apiKey, sender: mail.sender, fetchImpl })
+    if (!contact?.listId) {
+      if (!mail) throw new Error('no mail and no Brevo list configured')
+      return
+    }
     try {
-      const attributes = Object.fromEntries(
-        Object.entries(contact.attributes).map(([field, attribute]) => [attribute, data[field] ?? '']),
+      const attributes: Record<string, string | boolean> = Object.fromEntries(
+        Object.entries(contact.attributes).map(([field, attribute]) => [
+          attribute,
+          contact.checkboxes?.includes(field) ? data[field] === 'on' : (data[field] ?? ''),
+        ]),
       )
       await upsertContact({ email: data[contact.emailField] ?? '', attributes, listId: contact.listId }, { apiKey, fetchImpl })
     } catch (error) {
+      if (!mail) throw error
       console.error('brevo contact sync failed', error instanceof Error ? error.message : error)
     }
   }

@@ -41,6 +41,8 @@ interface SecureFormProps {
   /** Every field is checked in the browser before sending. Set to false only for a form the browser must not check. */
   validate?: boolean
   validationMessages?: Partial<ValidationMessages>
+  /** Wait for the Turnstile token before sending. Defaults to true when a site key is configured. */
+  requireChallenge?: boolean
   /** Heading of the list of problems shown above the submit button. */
   errorTitle?: string
   /** Class of the list of problems. Fields with a problem get `aria-invalid="true"`: style that in the design. */
@@ -89,6 +91,7 @@ export function SecureForm({
   messages,
   successModal,
   validate = true,
+  requireChallenge = Boolean(process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY),
   validationMessages,
   errorTitle = 'Merci de corriger les points suivants :',
   errorClassName,
@@ -96,6 +99,8 @@ export function SecureForm({
   const [state, formAction, pending] = useActionState(action, idleState)
   const [issues, setIssues] = useState<FieldIssue[]>([])
   const [sent, setSent] = useState<Record<string, string>>({})
+  const [verified, setVerified] = useState(false)
+  const [waiting, setWaiting] = useState(false)
   const form = useRef<HTMLFormElement>(null)
   const dialog = useRef<HTMLDialogElement>(null)
   const summary = useRef<HTMLDivElement>(null)
@@ -126,7 +131,11 @@ export function SecureForm({
     form.current?.reset()
   }, [state]) // eslint-disable-line react-hooks/exhaustive-deps
 
-  const message = successModal && state.status === 'success' ? null : messageFor(state, messages)
+  const message = waiting && !verified
+    ? 'Vérification anti-spam en cours, réessayez dans un instant.'
+    : successModal && state.status === 'success'
+      ? null
+      : messageFor(state, messages)
 
   return (
     <>
@@ -139,16 +148,25 @@ export function SecureForm({
         data-pending={pending || undefined}
         onSubmit={(event) => {
           if (pending) return event.preventDefault()
+          // Without a token the server would refuse the request: wait for the challenge instead of spending the attempt.
+          const gate = (keep: () => void) => {
+            if (requireChallenge && !verified) {
+              event.preventDefault()
+              setWaiting(true)
+              return
+            }
+            keep()
+          }
           const keep = () =>
             setSent(
               Object.fromEntries(
                 [...new FormData(event.currentTarget).entries()].filter((e): e is [string, string] => typeof e[1] === 'string'),
               ),
             )
-          if (!validate) return keep()
+          if (!validate) return gate(keep)
           checked.current = true
           const found = run()
-          if (found.length === 0) return keep()
+          if (found.length === 0) return gate(keep)
           event.preventDefault()
           const first = form.current?.elements.namedItem(found[0].name)
           if (first instanceof HTMLElement) first.focus({ preventScroll: true })
@@ -187,7 +205,14 @@ export function SecureForm({
             <input type="text" name={HONEYPOT_FIELD} tabIndex={-1} autoComplete="off" />
           </label>
         </div>
-        <TurnstileWidget action={turnstileAction} resetSignal={state} />
+        <TurnstileWidget
+          action={turnstileAction}
+          resetSignal={state}
+          onValidChange={(valid) => {
+            setVerified(valid)
+            if (valid) setWaiting(false)
+          }}
+        />
         <p role="status" aria-live="polite" className={statusClassName} data-state={state.status}>
           {message}
         </p>
@@ -218,7 +243,11 @@ export function SecureForm({
               {successModal.title}
             </h2>
             <div id={textId} className={successModal.textClassName}>
-              {typeof successModal.message === 'function' ? successModal.message(sent) : successModal.message}
+              {state.status !== 'success'
+                ? null
+                : typeof successModal.message === 'function'
+                  ? successModal.message(sent)
+                  : successModal.message}
             </div>
             <form method="dialog">
               <button type="submit" autoFocus className={successModal.buttonClassName}>
