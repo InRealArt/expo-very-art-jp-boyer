@@ -52,6 +52,10 @@
     "build:faq": {
       "status": "done",
       "inputsHash": "fb71b8d2a5523b885638cb76cb28438d8639efed532a2b8bac894afd5e4d5607"
+    },
+    "build:inscription": {
+      "status": "done",
+      "inputsHash": "8ff640a19c6a390b3b1a01ada51384d8e02710db58597daccae1062a09765a6b"
     }
   },
   "modules": {},
