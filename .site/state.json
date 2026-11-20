@@ -24,6 +24,10 @@
     "build:l-exposition": {
       "status": "done",
       "inputsHash": "05b855a0be46c640410a7b637fc66c658071848b86c17fac0ef13eb130591a3b"
+    },
+    "build:misc": {
+      "status": "done",
+      "inputsHash": "fa7c2527c8dd07cafad1831973c7efcbf0bdda573f3e49b3932f01b04f42bccb"
     }
   },
   "modules": {},
