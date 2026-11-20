@@ -31,7 +31,7 @@ export default function LExposition() {
               <span className="text-caption text-ink-soft">jours d’exposition</span>
             </Reveal>
             <Reveal delay={0.12} className="flex flex-col gap-2 sm:border-l sm:border-line sm:pl-6">
-              <strong className="font-display text-figure font-normal leading-[1.1] text-ink">≈ 1 000</strong>
+              <strong className="whitespace-nowrap font-display text-figure font-normal leading-[1.1] text-ink">≈ 1&nbsp;000</strong>
               <span className="text-caption text-ink-soft">sculptures réalisées</span>
             </Reveal>
           </div>

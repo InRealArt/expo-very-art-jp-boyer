@@ -6,7 +6,7 @@ import LArtiste from "@/components/sections/LArtiste";
 import LExposition from "@/components/sections/LExposition";
 import { Footer, Header, SkipLink } from "@/components/sections/Misc";
 import Mosaique from "@/components/sections/Mosaique";
-import Regards from "@/components/sections/Regards";
+// import Regards from "@/components/sections/Regards";
 import Visite from "@/components/sections/Visite";
 
 export default function Home() {
@@ -19,7 +19,7 @@ export default function Home() {
         <LExposition />
         <Mosaique />
         <LArtiste />
-        <Regards />
+        {/* <Regards /> */}
         <Acquerir />
         <Visite />
         <Inscription />

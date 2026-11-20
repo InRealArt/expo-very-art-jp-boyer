@@ -10,10 +10,10 @@ export default function LArtiste() {
           <figure>
             <Image
               src="/images/jean-paul-boyer-portrait.webp"
-              width={880}
-              height={1330}
+              width={1080}
+              height={1350}
               loading="lazy"
-              alt="Portrait de Jean-Paul Boyer devant l’une de ses sculptures en verre"
+              alt="Portrait de Jean-Paul Boyer Jean-Paul Boyer, sculpteur"
               className="h-auto w-full"
             />
           </figure>
