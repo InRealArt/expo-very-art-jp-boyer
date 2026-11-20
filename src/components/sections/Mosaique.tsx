@@ -4,9 +4,9 @@ import Image from "next/image";
 
 const works = [
   {
-    src: "/images/sm703-double-volume-1.webp",
-    w: 1400,
-    h: 1050,
+    src: "/images/sm703-double-volume.webp",
+    w: 2509,
+    h: 1882,
     alt: "Double volume, anneaux de lames d’acier sur socle de pierre noire",
     title: "Double volume",
     meta: "sm 703 · Acier laqué époxy incolore · H. 65 cm",
@@ -14,9 +14,9 @@ const works = [
     cls: "md:col-span-7",
   },
   {
-    src: "/images/sm760-formes-en-u-2.webp",
-    w: 1077,
-    h: 1400,
+    src: "/images/sm760-formes-en-u.webp",
+    w: 2269,
+    h: 2156,
     alt: "Formes en U, lames blanches en éventail autour d’une tige",
     title: "Formes en U",
     meta: "sm 760 · Acier laqué · H. 86 cm",
@@ -24,32 +24,32 @@ const works = [
     cls: "md:col-span-5 md:mt-24",
   },
   {
-    src: "/images/sm776-lames-bleues-1.webp",
-    w: 1050,
-    h: 1400,
+    src: "/images/sm761-lames-bleues.webp",
+    w: 2052,
+    h: 2576,
     alt: "Lames bleues, rubans bleus autour d’un axe",
     title: "Lames bleues",
-    meta: "sm 776 · Acier laqué · H. 76 cm",
+    meta: "sm 761 · Acier laqué · H. 76 cm",
     price: "2 500 €",
     cls: "md:col-span-4",
   },
   {
-    src: "/images/sm792-dix-petites-lames-3.webp",
+    src: "/images/sm763-dix-petites-lames.webp",
     w: 1050,
     h: 1400,
     alt: "Dix petites lames bleues et or en forme de vague",
     title: "Dix petites lames bleues et or",
-    meta: "sm 792 · H. 42 cm",
+    meta: "sm 763 · H. 42 cm",
     price: "1 600 €",
     cls: "md:col-span-4 md:mt-16",
   },
   {
-    src: "/images/sm847-triple-volute-1.webp",
+    src: "/images/sm764-triple-volute.webp",
     w: 1050,
     h: 1400,
     alt: "Triple volute, lames d’acier en S autour d’un axe",
     title: "Triple volute",
-    meta: "sm 847 · Acier laqué · H. 100 cm",
+    meta: "sm 764 · Acier laqué · H. 100 cm",
     price: "5 000 €",
     cls: "md:col-span-4",
   },
@@ -57,7 +57,7 @@ const works = [
 
 const spec: [string, string][] = [
   ["Artiste", "Jean-Paul Boyer"],
-  ["Référence", "sm 847"],
+  ["Référence", "sm 764"],
   ["Matière", "Acier laqué"],
   ["Hauteur", "100 cm"],
   ["Prix", "5 000 €"],
@@ -74,9 +74,9 @@ export default function Mosaique() {
         <div className="grid grid-cols-1 gap-6 md:grid-cols-12 md:items-end">
           <div className="md:col-span-7">
             <Image
-              src="/images/sm703-double-volume-2.webp"
-              width={1400}
-              height={1050}
+              src="/images/sm703-double-volume.webp"
+              width={2509}
+              height={1882}
               loading="lazy"
               alt="Double volume, sphère de lames d’acier sur socle de pierre"
               className="h-auto w-full"
@@ -84,9 +84,9 @@ export default function Mosaique() {
           </div>
           <div className="md:col-span-4 md:col-start-9">
             <Image
-              src="/images/sm776-lames-bleues-2.webp"
-              width={1115}
-              height={1400}
+              src="/images/sm761-lames-bleues.webp"
+              width={2052}
+              height={2576}
               loading="lazy"
               alt="Lames bleues, rubans d’acier bleu nuit et bleu roi"
               className="h-auto w-full"
@@ -99,7 +99,7 @@ export default function Mosaique() {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:items-center">
           <div className="md:col-span-7">
             <Image
-              src="/images/sm847-triple-volute-3.webp"
+              src="/images/sm764-triple-volute.webp"
               width={1050}
               height={1400}
               loading="lazy"

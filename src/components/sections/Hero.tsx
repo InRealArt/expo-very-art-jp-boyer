@@ -36,9 +36,9 @@ export default function Hero() {
         <figure className="lg:col-span-5">
           <div className="relative aspect-[3/4] w-full overflow-hidden border border-line">
             <Image
-              src="/images/sm847-triple-volute-1.webp"
-              width={1050}
-              height={1400}
+              src="/images/sm764-triple-volute.webp"
+              width={3000}
+              height={4000}
               alt="Jean-Paul Boyer, Triple volute, acier laqué, hauteur 100 cm"
               priority
               sizes="(min-width: 1024px) 40vw, 100vw"
