@@ -1,0 +1,73 @@
+version: 1
+
+project:
+  name: expo-very-art-jp-boyer
+  locale: fr
+  locales: [fr]
+  domain: boyer-sculpture.fr
+  packageManager: pnpm
+
+# Page de départ : le template statique, apparence conservée.
+source:
+  template: ./template-index.html
+  mode: adapt
+
+# Direction artistique reprise du template.
+da:
+  mood: "Galerie sobre, fond ivoire chaud, un seul accent or, titres en serif élégant, angles droits"
+  palette:
+    bg: "#FAF9F8"
+    bg2: "#F5F4F0"
+    card: "#FFFFFF"
+    ink: "#0F0E0D"
+    text: "#3D3A36"
+    muted: "#6F6A63"
+    line: "#E4E1DA"
+    gold: "#805F19"
+    goldLight: "#C9A961"
+  fonts:
+    display: "Playfair Display"
+    body: "Plus Jakarta Sans"
+  radius: none
+  motion:
+    level: subtle
+
+pages:
+  - route: /
+
+forms:
+  - id: inscription
+    fields:
+      - { name: prenom, type: text, required: true, max: 80, label: Prénom }
+      - { name: nom, type: text, required: true, max: 80, label: Nom }
+      - { name: email, type: email, required: true, label: E-mail }
+      - { name: telephone, type: tel, label: Téléphone }
+      - name: demande
+        type: select
+        required: true
+        label: Votre demande
+        options:
+          - Venir au vernissage (samedi 5 décembre, 18 h)
+          - Organiser une visite avec l'artiste
+          - Information sur une œuvre
+          - Autre demande
+      - name: personnes
+        type: select
+        required: true
+        label: Nombre de personnes
+        options: ["1", "2", "3", "4"]
+      - { name: message, type: textarea, max: 2000, label: Message (facultatif) }
+      - name: consentement
+        type: consent
+        required: true
+        label: J'accepte que mes données soient utilisées pour répondre à ma demande.
+    turnstile: { action: inscription }
+    mail: { to: "env:CONTACT_TO", replyToField: email }
+    rateLimit: { perIpPerHour: 5 }
+
+# Carte Google Maps de la section Visite.
+security:
+  frameSrc:
+    - https://www.google.com
+
+modules: []
