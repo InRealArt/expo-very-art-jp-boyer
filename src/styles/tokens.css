@@ -168,6 +168,58 @@
     font-size: var(--text-caption);
   }
 
+  /* Confirmation dialog of the forms: a white card with a gold rule, over a veiled page. */
+  .modal::backdrop {
+    background: color-mix(in srgb, var(--color-ink) 55%, transparent);
+    backdrop-filter: blur(6px);
+    opacity: 0;
+    transition:
+      opacity 400ms var(--ease-gallery),
+      overlay 400ms allow-discrete,
+      display 400ms allow-discrete;
+  }
+
+  .modal[open]::backdrop {
+    opacity: 1;
+  }
+
+  .modal-panel {
+    padding: 3rem 2rem 2.5rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-top: 3px solid var(--color-accent);
+    border-radius: var(--radius-none);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(1.25rem);
+    transition:
+      opacity 500ms var(--ease-gallery),
+      transform 500ms var(--ease-gallery);
+  }
+
+  .modal[open] .modal-panel {
+    opacity: 1;
+    transform: none;
+  }
+
+  @starting-style {
+    .modal[open]::backdrop {
+      opacity: 0;
+    }
+
+    .modal[open] .modal-panel {
+      opacity: 0;
+      transform: translateY(1.25rem);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .modal::backdrop,
+    .modal-panel {
+      transition: none;
+    }
+  }
+
   .on-ink {
     background: var(--color-ink);
     color: var(--color-paper);
