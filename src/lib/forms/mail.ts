@@ -1,4 +1,4 @@
-import { escapeHtml, sendMail, type MailInput, type MailOptions } from '../mail/brevo'
+import { escapeHtml, sendMail, upsertContact, type MailInput, type MailOptions } from '../mail/brevo'
 
 export interface ComposeOptions {
   to: string
@@ -29,8 +29,31 @@ export function composeMail(data: Record<string, string>, o: ComposeOptions): Ma
   }
 }
 
+export interface ContactSync {
+  /** Brevo list receiving the contact. Without it nothing is synced. */
+  listId?: number
+  /** Name of the submitted field holding the visitor's address. */
+  emailField: string
+  /** Submitted field name to Brevo attribute name (for instance prenom to PRENOM). */
+  attributes: Record<string, string>
+}
+
 /** Ready-made `send` for handleForm: compose, escape, then post through Brevo. */
-export function makeSender(o: ComposeOptions & MailOptions): (data: Record<string, string>) => Promise<void> {
-  const { apiKey, sender, fetchImpl, ...compose } = o
-  return (data) => sendMail(composeMail(data, compose), { apiKey, sender, fetchImpl })
+export function makeSender(
+  o: ComposeOptions & MailOptions & { contact?: ContactSync },
+): (data: Record<string, string>) => Promise<void> {
+  const { apiKey, sender, fetchImpl, contact, ...compose } = o
+  return async (data) => {
+    await sendMail(composeMail(data, compose), { apiKey, sender, fetchImpl })
+    if (!contact?.listId) return
+    // The team already has the notification: a Brevo contact failure is logged, not shown to the visitor.
+    try {
+      const attributes = Object.fromEntries(
+        Object.entries(contact.attributes).map(([field, attribute]) => [attribute, data[field] ?? '']),
+      )
+      await upsertContact({ email: data[contact.emailField] ?? '', attributes, listId: contact.listId }, { apiKey, fetchImpl })
+    } catch (error) {
+      console.error('brevo contact sync failed', error instanceof Error ? error.message : error)
+    }
+  }
 }

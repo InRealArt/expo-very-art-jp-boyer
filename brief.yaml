@@ -65,6 +65,10 @@ forms:
         label: J'accepte que mes données soient utilisées pour répondre à ma demande.
     turnstile: { action: inscription }
     mail: { to: "env:CONTACT_TO", replyToField: email }
+    # Contact créé dans la liste Brevo BREVO_CONTACTS_LIST_ID : champ du formulaire -> attribut Brevo.
+    contact:
+      emailField: email
+      attributes: { prenom: PRENOM, nom: NOM, telephone: SMS, demande: DEMANDE, personnes: NB_ACCOMPAGNANTS, message: MESSAGE }
     rateLimit: { perIpPerHour: 5 }
 
 # Carte Google Maps de la section Visite.
