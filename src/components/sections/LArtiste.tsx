@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/motion/Reveal";
+import { SplitText } from "@/components/motion/SplitText";
 import Image from "next/image";
 
 export default function LArtiste() {
@@ -18,18 +20,20 @@ export default function LArtiste() {
         </div>
         <div className="lg:col-span-6 lg:col-start-7">
           <p className="overline">L’artiste</p>
-          <h2 className="mt-4 font-display text-h2 font-normal leading-[1.1] tracking-[-0.01em] text-ink">
-            Jean-Paul Boyer
-          </h2>
-          <div className="mt-6 space-y-6 text-[1.0625rem] leading-[1.65] text-ink-text">
+          <SplitText
+            as="h2"
+            text="Jean-Paul Boyer"
+            className="mt-4 font-display text-h2 font-normal leading-[1.1] tracking-[-0.01em] text-ink"
+          />
+          <Reveal className="mt-6 space-y-6 text-[1.0625rem] leading-[1.65] text-ink-text">
             <p className="max-w-[65ch]">
               Né en France en 1942, Jean-Paul Boyer commence par une production classique, essentiellement en bois. Il élargit ensuite sa pratique à tous les matériaux : marbre, pierre, bronze, acier, verre, résines, et jusqu’aux objets du quotidien.
             </p>
             <p className="max-w-[65ch]">
               Dans chacune de ses pièces, l’air et le vide font partie de l’œuvre. Depuis son atelier d’Épinay-sur-Orge, il a réalisé près d’un millier de sculptures, presque toutes uniques, exposées en galeries et salons en France et à l’international.
             </p>
-          </div>
-          <ul className="mt-10 border-t border-line">
+          </Reveal>
+          <Reveal as="ul" className="mt-10 border-t border-line">
             <li className="flex flex-col gap-1 border-b border-line py-4 sm:flex-row sm:items-baseline sm:gap-6">
               <b className="font-display text-lead font-normal text-accent sm:w-28 sm:shrink-0">1942</b>
               <span className="text-ink-text">Naissance en France</span>
@@ -46,7 +50,7 @@ export default function LArtiste() {
               <b className="font-display text-lead font-normal text-accent sm:w-28 sm:shrink-0">2026</b>
               <span className="text-ink-text">Exposition à la Very Art Gallery, Paris 3e</span>
             </li>
-          </ul>
+          </Reveal>
         </div>
       </div>
     </section>

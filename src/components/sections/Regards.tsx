@@ -1,10 +1,11 @@
+import { Reveal } from "@/components/motion/Reveal";
 export default function Regards() {
   return (
     <section id="regards" className="bg-paper-deep py-24 lg:py-36">
       <div className="mx-auto max-w-(--container-site) px-6 lg:px-10">
         <p className="overline">Regards sur l’œuvre</p>
         <div className="mt-10 grid gap-10 lg:grid-cols-2 lg:gap-x-10 lg:gap-y-16">
-          <figure className="lg:col-span-2">
+          <Reveal as="figure" className="lg:col-span-2">
             <blockquote className="max-w-[40ch] font-display text-h2 font-normal italic leading-[1.2] tracking-[-0.01em] text-ink">
               « [Texte de Timothée Roy sur le travail de Jean-Paul Boyer, à fournir et valider avec lui.] »
             </blockquote>
@@ -20,8 +21,8 @@ export default function Regards() {
                 <span>Fondateur d’InRealArt, agent du peintre Alain Pontecorvo</span>
               </span>
             </figcaption>
-          </figure>
-          <figure className="border border-line bg-surface p-8 lg:mt-16">
+          </Reveal>
+          <Reveal as="figure" delay={0.06} className="border border-line bg-surface p-8 lg:mt-16">
             <blockquote className="font-display text-lead leading-[1.4] text-ink">
               « [Citation du curateur, à fournir et valider avec lui.] »
             </blockquote>
@@ -37,8 +38,8 @@ export default function Regards() {
                 <span>[Curateur, institution]</span>
               </span>
             </figcaption>
-          </figure>
-          <figure className="border border-line bg-surface p-8">
+          </Reveal>
+          <Reveal as="figure" delay={0.12} className="border border-line bg-surface p-8">
             <blockquote className="font-display text-lead leading-[1.4] text-ink">
               « [Citation du curateur, à fournir et valider avec lui.] »
             </blockquote>
@@ -54,7 +55,7 @@ export default function Regards() {
                 <span>[Curateur, institution]</span>
               </span>
             </figcaption>
-          </figure>
+          </Reveal>
         </div>
       </div>
     </section>

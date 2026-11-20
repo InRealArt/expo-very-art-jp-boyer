@@ -48,6 +48,5 @@ next-env.d.ts
 .swc
 !.env.example
 
-#AI
-AGENTS.md 
-brief.yaml
+#History
+.history* 

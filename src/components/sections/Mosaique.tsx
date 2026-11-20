@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/motion/Reveal";
+import { SplitText } from "@/components/motion/SplitText";
 import Image from "next/image";
 
 const works = [
@@ -105,7 +107,7 @@ export default function Mosaique() {
               className="h-auto w-full"
             />
           </div>
-          <div className="card p-8 md:col-span-5 md:p-10">
+          <Reveal className="card p-8 md:col-span-5 md:p-10">
             <p className="overline">Œuvre phare</p>
             <h2 className="mt-4 font-display text-h2 leading-[1.1] tracking-[-0.01em] text-ink">
               Triple volute
@@ -129,7 +131,7 @@ export default function Mosaique() {
                 </div>
               ))}
             </dl>
-          </div>
+          </Reveal>
         </div>
       </section>
 
@@ -140,16 +142,20 @@ export default function Mosaique() {
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
             <p className="overline">Parcours</p>
-            <h2 className="mt-4 font-display text-h2 leading-[1.1] tracking-[-0.01em] text-ink">
-              Œuvres présentées
-            </h2>
+            <SplitText
+              as="h2"
+              text="Œuvres présentées"
+              className="mt-4 font-display text-h2 leading-[1.1] tracking-[-0.01em] text-ink"
+            />
           </div>
           <p className="text-caption text-ink-soft">Pièces uniques, signées</p>
         </div>
         <div className="mt-10 grid grid-cols-1 gap-6 md:mt-16 md:grid-cols-12">
-          {works.map((w) => (
-            <figure
+          {works.map((w, i) => (
+            <Reveal
+              as="figure"
               key={w.title + w.src}
+              delay={Math.min(0.06 + i * 0.06, 0.3)}
               className={`card card-hover m-0 ${w.cls}`}
             >
               <Image
@@ -169,7 +175,7 @@ export default function Mosaique() {
                   {w.price}
                 </p>
               </figcaption>
-            </figure>
+            </Reveal>
           ))}
         </div>
       </section>

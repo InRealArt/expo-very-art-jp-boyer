@@ -1,0 +1,3 @@
+# Task: animate
+Project root: /home/gilles/DEV/IN_REAL_ART/expo-very-art-jp-boyer. Read `.site/design.md` (blocks per section + "Motion"), `src/components/motion/` (Reveal, SplitText, useReducedMotion) and the section components in `src/components/sections/`.
+Apply Reveal / SplitText to the sections whose design block says split or reveal (l-exposition, mosaique, l-artiste, regards, acquerir, visite). Sections with "Motion: none" (misc, hero, inscription, faq) stay untouched. Keep Server Components as Server Components where possible (wrap only the animated pieces). Content must stay visible without JS / with reduced motion.

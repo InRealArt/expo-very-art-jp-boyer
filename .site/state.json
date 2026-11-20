@@ -60,6 +60,10 @@
     "page": {
       "status": "done",
       "inputsHash": "1566ac051e044c5430f4748031b4f123380a30eedb3a7343c69f1cdb95ebdd9b"
+    },
+    "animate": {
+      "status": "done",
+      "inputsHash": "a5e41a367c69af875d83ffa8909a256bfde5a391faed66d8a7ec745119e75739"
     }
   },
   "modules": {},

@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/motion/Reveal";
 const infos: { dt: string; dd: React.ReactNode }[] = [
   {
     dt: "Adresse",
@@ -34,14 +35,14 @@ export default function Visite() {
           <h2 className="mt-4 font-display text-h2 font-normal leading-[1.1] tracking-[-0.01em] text-ink">
             Visiter l’exposition
           </h2>
-          <dl className="mt-10 grid gap-x-10 gap-y-6 sm:grid-cols-2">
+          <Reveal as="dl" className="mt-10 grid gap-x-10 gap-y-6 sm:grid-cols-2">
             {infos.map(({ dt, dd }) => (
               <div key={dt} className="border-t border-line pt-4">
                 <dt className="overline">{dt}</dt>
                 <dd className="mt-2 leading-[1.65] text-ink-text">{dd}</dd>
               </div>
             ))}
-          </dl>
+          </Reveal>
         </div>
         <div className="min-h-80 border border-line lg:min-h-full">
           <iframe
