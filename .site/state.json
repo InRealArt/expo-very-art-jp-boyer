@@ -40,6 +40,10 @@
     "build:l-artiste": {
       "status": "done",
       "inputsHash": "b11f13259afa22e59b4e3408a3852633d9199499c4ff3eedc292a64f78c3bf78"
+    },
+    "build:regards": {
+      "status": "done",
+      "inputsHash": "ab593c0a900d8dd59f36a4fa80ca2281c44602280b23e4a8e126179625d93832"
     }
   },
   "modules": {},
