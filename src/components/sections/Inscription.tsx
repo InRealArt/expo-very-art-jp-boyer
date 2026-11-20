@@ -4,7 +4,7 @@ import { SecureForm } from "@/components/forms/SecureForm";
 import { submitInscription } from "@/app/actions/inscription";
 
 const demandes = [
-  "Venir au vernissage (samedi 5 décembre, 18 h)",
+  "Venir au vernissage (samedi 5 décembre, 18 h)",
   "Organiser une visite avec l’artiste",
   "Information sur une œuvre",
   "Autre demande",
@@ -18,7 +18,7 @@ const label = "text-[13px] font-semibold text-ink";
 function confirmation({ prenom = "", email = "", demande = "" }: Record<string, string>) {
   const who = prenom ? `Merci ${prenom}. ` : "Merci. ";
   if (demande.startsWith("Venir au vernissage")) {
-    return `${who}Votre venue au vernissage est bien enregistrée : nous vous attendons le samedi 5 décembre à 18 h à la Very Art Gallery, 21 rue Michel Le Comte, Paris 3e. Une confirmation part vers ${email}.`;
+    return `${who}Votre venue au vernissage est bien enregistrée : nous vous attendons le samedi 5 décembre à 18 h à la Very Art Gallery, 21 rue Michel Le Comte, Paris 3e. Une confirmation part vers ${email}.`;
   }
   if (demande.startsWith("Organiser une visite")) {
     return `${who}Nous avons bien reçu votre demande de visite avec l’artiste. Nous vous écrivons à ${email} pour convenir d’un rendez-vous à la Very Art Gallery.`;
@@ -36,7 +36,7 @@ export default function Inscription() {
             Vernissage, visite privée ou renseignement
           </h2>
           <p className="mt-5 max-w-[65ch] text-lead leading-[1.65] text-ink-text">
-            Laissez-nous vos coordonnées : nous vous confirmons votre venue au vernissage du samedi 5 décembre à 18 h, ou nous revenons vers vous pour organiser une visite avec l’artiste.
+            Laissez-nous vos coordonnées : nous vous confirmons votre venue au vernissage du samedi 5 décembre à 18 h, ou nous revenons vers vous pour organiser une visite avec l’artiste.
           </p>
         </div>
         <div className="card p-6 lg:col-span-7 lg:p-10">

@@ -1,11 +1,11 @@
 const items: { q: string; a: React.ReactNode }[] = [
   {
     q: "En quoi consiste l’exposition de Jean-Paul Boyer ?",
-    a: "L’exposition réunit cinq sculptures récentes de Jean-Paul Boyer en acier laqué, de 42 à 100 cm, à la Very Art Gallery du mercredi 2 au dimanche 6 décembre 2026. Un vernissage en présence de l’artiste a lieu le samedi 5 décembre à 18 h. Toutes les œuvres sont disponibles à l’acquisition.",
+    a: "L’exposition réunit six sculptures récentes de Jean-Paul Boyer en acier laqué, de 42 à 100 cm, à la Very Art Gallery du mercredi 2 au dimanche 6 décembre 2026. Un vernissage en présence de l’artiste a lieu le samedi 5 décembre à 18 h. Toutes les œuvres sont disponibles à l’acquisition.",
   },
   {
     q: "Quels sont les horaires d’ouverture ?",
-    a: "L’exposition est ouverte du mercredi 2 au dimanche 6 décembre 2026, [horaires d’ouverture]. Le vernissage a lieu le samedi 5 décembre à 18 h.",
+    a: "L’exposition est ouverte du mercredi 2 au dimanche 6 décembre 2026, [horaires d’ouverture]. Le vernissage a lieu le samedi 5 décembre à 18 h.",
   },
   {
     q: "Où se situe la Very Art Gallery ?",

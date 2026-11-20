@@ -10,10 +10,10 @@ export default function Hero() {
             Jean-Paul <em className="block italic">Boyer</em>
           </h1>
           <p className="mt-6 font-display text-(length:--text-h3) text-ink">
-            [Titre de l’exposition] à la Very Art Gallery
+            Exposition à la Very Art Gallery
           </p>
           <p className="mt-6 max-w-[65ch] text-(length:--text-lead) leading-[1.65] text-ink-text">
-            Cinq sculptures récentes en acier laqué, réunies pendant cinq jours au cœur du Marais. Des lames fines, cintrées et assemblées autour d’un axe, qui dessinent des volumes ouverts à la lumière.
+            Six sculptures récentes en acier laqué, réunies pendant cinq jours au cœur du Marais. Des lames fines, cintrées et assemblées autour d’un axe, qui dessinent des volumes ouverts à la lumière.
           </p>
           <dl className="mt-10 grid grid-cols-1 border-y border-line md:grid-cols-3 md:divide-x md:divide-line">
             <div className="py-4 md:px-4 md:first:pl-0">
@@ -26,7 +26,7 @@ export default function Hero() {
             </div>
             <div className="border-t border-line py-4 md:border-t-0 md:px-4">
               <dt className="eyebrow">Vernissage</dt>
-              <dd className="mt-2 text-ink-text">Samedi 5 décembre, 18 h</dd>
+              <dd className="mt-2 text-ink-text">Samedi 5 décembre, 18 h</dd>
             </div>
           </dl>
           <div className="mt-10">

@@ -48,9 +48,19 @@ export default function MentionsLegales() {
               <h2 id="hebergement" className="font-display text-h3 font-normal leading-[1.1] text-ink">
                 Hébergement
               </h2>
-              <p className="mt-4">
-                [Nom de l’hébergeur, forme juridique, adresse du siège et numéro d’immatriculation : à confirmer.]
-              </p>
+              <address className="mt-4 not-italic">
+                OVH
+                <br />
+                SAS au capital de 50&nbsp;000&nbsp;000&nbsp;€
+                <br />
+                RCS Lille Métropole 424&nbsp;761&nbsp;419 00045
+                <br />
+                Code APE 2620Z
+                <br />
+                N° TVA : FR&nbsp;22&nbsp;424&nbsp;761&nbsp;419
+                <br />
+                Siège social : 2 rue Kellermann, 59100 Roubaix, France
+              </address>
             </section>
 
             <section aria-labelledby="donnees">

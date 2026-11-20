@@ -16,7 +16,7 @@ const steps = [
   {
     n: "03",
     title: "Acquérir",
-    text: "[Certificat d’authenticité, livraison et installation : à préciser.]",
+    text: "Avec certificat d'authenticité et livraison",
     span: "lg:col-span-3",
   },
 ];
@@ -33,7 +33,7 @@ export default function Acquerir() {
             className="mt-4 font-display text-h2 font-normal leading-[1.1] tracking-[-0.01em] text-paper"
           />
           <p className="mt-5 text-lead leading-[1.65] text-on-ink-soft">
-            Les cinq sculptures exposées sont disponibles à l’acquisition. Jean-Paul Boyer vous accompagne de la première visite à l’installation chez vous.
+            Les six sculptures exposées sont disponibles à l’acquisition. Jean-Paul Boyer vous accompagne de la première visite à l’installation chez vous.
           </p>
         </div>
         <ol className="mt-16 grid list-none gap-10 lg:grid-cols-12 lg:gap-0">

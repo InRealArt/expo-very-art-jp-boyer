@@ -15,15 +15,15 @@ export default function LExposition() {
         <div className="space-y-6 text-[1.0625rem] leading-[1.65] text-ink-text lg:col-span-6 lg:col-start-7">
           <Reveal className="space-y-6">
           <p className="max-w-[65ch]">
-            Né en France en 1942, Jean-Paul Boyer fait de l’air et du vide une partie de la sculpture. Pour cette exposition à la Very Art Gallery, il présente cinq sculptures récentes en acier laqué, de 42 à 100 cm : volutes, éventails et sphères ajourées que la lumière traverse.
+            Né en France en 1942, Jean-Paul Boyer fait de l’air et du vide une partie de la sculpture. Pour cette exposition à la Very Art Gallery, il présente six sculptures récentes en acier laqué, de 42 à 100 cm : volutes, éventails et sphères ajourées que la lumière traverse.
           </p>
           <p className="max-w-[65ch]">
-            [Deux ou trois phrases sur le propos de l’exposition : ce qui relie les œuvres, ce qu’elle montre de neuf.] L’exposition ouvre le mercredi 2 décembre et se termine le dimanche 6 décembre, avec un vernissage en présence de l’artiste le samedi 5 décembre à 18 h.
+            [Deux ou trois phrases sur le propos de l’exposition : ce qui relie les œuvres, ce qu’elle montre de neuf.] L’exposition ouvre le mercredi 2 décembre et se termine le dimanche 6 décembre, avec un vernissage en présence de l’artiste le samedi 5 décembre à 18 h.
           </p>
           </Reveal>
           <div className="grid grid-cols-1 gap-6 border-t border-line pt-8 sm:grid-cols-3 sm:gap-0">
             <Reveal delay={0} className="flex flex-col gap-2 sm:pr-6">
-              <strong className="font-display text-figure font-normal leading-[1.1] text-ink">5</strong>
+              <strong className="font-display text-figure font-normal leading-[1.1] text-ink">6</strong>
               <span className="text-caption text-ink-soft">œuvres exposées</span>
             </Reveal>
             <Reveal delay={0.06} className="flex flex-col gap-2 sm:border-l sm:border-line sm:px-6">
