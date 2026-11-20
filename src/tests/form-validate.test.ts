@@ -25,7 +25,9 @@ describe('checkField', () => {
   })
 
   it('refuses an unticked required box and accepts a ticked one', () => {
-    expect(checkField(field({ type: 'checkbox', required: true }))).toBe(m.consent)
+    expect(checkField(field({ type: 'checkbox', required: true, label: 'J’accepte les conditions' }))).toBe(
+      'Merci de cocher la case « J’accepte les conditions »',
+    )
     expect(checkField(field({ type: 'checkbox', required: true, checked: true }))).toBeNull()
     expect(checkField(field({ type: 'checkbox' }))).toBeNull()
   })

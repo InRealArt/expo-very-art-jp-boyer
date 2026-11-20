@@ -14,7 +14,7 @@ export interface FieldSnapshot {
 
 export interface ValidationMessages {
   required: (label: string) => string
-  consent: string
+  consent: (label: string) => string
   email: string
   tel: string
   tooShort: (label: string, min: number) => string
@@ -25,7 +25,7 @@ export interface ValidationMessages {
 /** Plain French messages. They name the field and say what to do, never how the server checks it. */
 export const defaultValidationMessages: ValidationMessages = {
   required: (label) => `${label} : ce champ est obligatoire.`,
-  consent: 'Cette case doit être cochée pour envoyer le formulaire.',
+  consent: (label) => `Merci de cocher la case « ${label} »`,
   email: 'Cette adresse e-mail semble incomplète.',
   tel: 'Ce numéro de téléphone semble incorrect.',
   tooShort: (label, min) => `${label} : ${min} caractères minimum.`,
@@ -38,7 +38,7 @@ const PHONE = /^\+?[\d\s().-]+$/
 
 /** First problem of one field, or null. The same rules run on every field, unless the page opts out of the check. */
 export function checkField(f: FieldSnapshot, m: ValidationMessages = defaultValidationMessages): string | null {
-  if (f.type === 'checkbox') return f.required && !f.checked ? m.consent : null
+  if (f.type === 'checkbox') return f.required && !f.checked ? m.consent(f.label) : null
 
   const value = f.value.trim()
   if (value === '') return f.required ? m.required(f.label) : null

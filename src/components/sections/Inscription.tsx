@@ -103,10 +103,6 @@ export default function Inscription() {
               <input id="f-rgpd" name="consentement" type="checkbox" value="oui" required className="mt-1 accent-accent" />
               <label htmlFor="f-rgpd">J’accepte que mes données soient utilisées pour répondre à ma demande.</label>
             </div>
-            <div className="flex items-start gap-3 text-caption text-ink-soft">
-              <input id="f-news" name="newsletter" type="checkbox" value="oui" className="mt-1 accent-accent" />
-              <label htmlFor="f-news">Je souhaite être informé(e) des prochaines expositions de Jean-Paul Boyer.</label>
-            </div>
             <span hidden aria-hidden="true">Ne pas remplir</span>
             <div>
               <button type="submit" className="btn w-full sm:w-auto">Je m’inscris</button>

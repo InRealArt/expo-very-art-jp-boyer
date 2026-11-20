@@ -61,9 +61,6 @@ export default function MentionsLegales() {
                 Des données personnelles sont collectées uniquement par le formulaire d’inscription (prénom, nom, adresse e-mail, téléphone, objet de la demande, nombre de personnes et message). Elles servent à répondre à votre demande, à confirmer votre venue au vernissage ou à organiser une visite avec l’artiste, et ne sont utilisées pour aucun autre usage.
               </p>
               <p className="mt-4">
-                Si vous cochez la case correspondante, votre adresse e-mail peut aussi servir à vous informer des prochaines expositions de Jean-Paul Boyer. Cette case est facultative.
-              </p>
-              <p className="mt-4">
                 Votre adresse IP n’est pas conservée. Aucune donnée n’est stockée directement sur le site : les messages sont transmis par e-mail à l’éditeur, qui applique des mesures de sécurité adaptées pour protéger vos informations.
               </p>
               <p className="mt-4">
