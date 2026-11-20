@@ -49,7 +49,7 @@ export async function submitInscription(_previous: FormState, formData: FormData
       replyToField: "email",
       labels: {"prenom":"Prénom","nom":"Nom","email":"E-mail","telephone":"Téléphone","demande":"Votre demande","personnes":"Nombre de personnes","message":"Message (facultatif)","consentement":"J'accepte que mes données soient utilisées pour répondre à ma demande."},
       checkboxes: ["consentement"],
-      contact: { listId: env.BREVO_CONTACTS_LIST_ID, emailField: "email", attributes: {"prenom":"PRENOM","nom":"NOM","telephone":"SMS","demande":"DEMANDE","personnes":"NB_ACCOMPAGNANTS","message":"MESSAGE"} },
+      contact: { listId: env.BREVO_CONTACTS_LIST_ID, emailField: "email", attributes: {"prenom":"FIRSTNAME","nom":"LASTNAME","telephone":"TELEPHONE","demande":"DEMANDE","personnes":"NB_ACCOMPAGNANTS","message":"MESSAGE"} },
     }),
   })
   return result.ok ? { status: 'success' } : { status: 'error', error: result.error }

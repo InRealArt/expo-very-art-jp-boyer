@@ -68,7 +68,7 @@ forms:
     # Contact créé dans la liste Brevo BREVO_CONTACTS_LIST_ID : champ du formulaire -> attribut Brevo.
     contact:
       emailField: email
-      attributes: { prenom: PRENOM, nom: NOM, telephone: SMS, demande: DEMANDE, personnes: NB_ACCOMPAGNANTS, message: MESSAGE }
+      attributes: { prenom: FIRSTNAME, nom: LASTNAME, telephone: TELEPHONE, demande: DEMANDE, personnes: NB_ACCOMPAGNANTS, message: MESSAGE }
     rateLimit: { perIpPerHour: 5 }
 
 # Carte Google Maps de la section Visite.
