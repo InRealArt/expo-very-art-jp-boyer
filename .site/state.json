@@ -20,6 +20,10 @@
     "build:hero": {
       "status": "done",
       "inputsHash": "c615e65af6faac74f4b9905bfc61a843166ec7e7c5b4a0ab3aac48ce8479b61b"
+    },
+    "build:l-exposition": {
+      "status": "done",
+      "inputsHash": "05b855a0be46c640410a7b637fc66c658071848b86c17fac0ef13eb130591a3b"
     }
   },
   "modules": {},
