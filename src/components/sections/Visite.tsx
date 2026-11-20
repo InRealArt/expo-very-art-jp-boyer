@@ -31,14 +31,14 @@ export default function Visite() {
     <section id="visite" className="bg-paper py-24 lg:py-36">
       <div className="mx-auto grid max-w-(--container-site) gap-10 px-6 lg:grid-cols-2 lg:gap-16 lg:px-10">
         <div>
-          <p className="overline">Informations pratiques</p>
+          <p className="eyebrow">Informations pratiques</p>
           <h2 className="mt-4 font-display text-h2 font-normal leading-[1.1] tracking-[-0.01em] text-ink">
             Visiter l’exposition
           </h2>
           <Reveal as="dl" className="mt-10 grid gap-x-10 gap-y-6 sm:grid-cols-2">
             {infos.map(({ dt, dd }) => (
               <div key={dt} className="border-t border-line pt-4">
-                <dt className="overline">{dt}</dt>
+                <dt className="eyebrow">{dt}</dt>
                 <dd className="mt-2 leading-[1.65] text-ink-text">{dd}</dd>
               </div>
             ))}

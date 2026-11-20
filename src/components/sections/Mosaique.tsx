@@ -108,7 +108,7 @@ export default function Mosaique() {
             />
           </div>
           <Reveal className="card p-8 md:col-span-5 md:p-10">
-            <p className="overline">Œuvre phare</p>
+            <p className="eyebrow">Œuvre phare</p>
             <h2 className="mt-4 font-display text-h2 leading-[1.1] tracking-[-0.01em] text-ink">
               Triple volute
             </h2>
@@ -141,7 +141,7 @@ export default function Mosaique() {
       >
         <div className="flex flex-wrap items-end justify-between gap-4">
           <div>
-            <p className="overline">Parcours</p>
+            <p className="eyebrow">Parcours</p>
             <SplitText
               as="h2"
               text="Œuvres présentées"

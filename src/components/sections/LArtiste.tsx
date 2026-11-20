@@ -19,7 +19,7 @@ export default function LArtiste() {
           </figure>
         </div>
         <div className="lg:col-span-6 lg:col-start-7">
-          <p className="overline">L’artiste</p>
+          <p className="eyebrow">L’artiste</p>
           <SplitText
             as="h2"
             text="Jean-Paul Boyer"

@@ -5,7 +5,7 @@ export default function LExposition() {
     <section id="exposition" className="bg-paper py-24 lg:py-36">
       <div className="mx-auto grid max-w-(--container-site) gap-10 px-6 lg:grid-cols-12 lg:px-10">
         <div className="lg:col-span-5">
-          <p className="overline">L’exposition</p>
+          <p className="eyebrow">L’exposition</p>
           <SplitText
             as="h2"
             text="Sculpter l’air et le vide"

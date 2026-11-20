@@ -22,7 +22,7 @@ export default function Inscription() {
     <section id="inscription" className="bg-paper-deep py-24 lg:py-36">
       <div className="mx-auto grid max-w-(--container-site) gap-10 px-6 lg:grid-cols-12 lg:gap-16 lg:px-10">
         <div className="lg:col-span-5">
-          <p className="overline">Inscription</p>
+          <p className="eyebrow">Inscription</p>
           <h2 className="mt-4 font-display text-h2 font-normal leading-[1.1] tracking-[-0.01em] text-ink">
             Vernissage, visite privée ou renseignement
           </h2>

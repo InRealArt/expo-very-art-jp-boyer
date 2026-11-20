@@ -26,7 +26,7 @@ export default function Acquerir() {
     <section id="acquerir" className="on-ink py-24 lg:py-36">
       <div className="mx-auto max-w-(--container-site) px-6 lg:px-10">
         <div className="max-w-[65ch]">
-          <p className="overline">Collectionner Boyer</p>
+          <p className="eyebrow">Collectionner Boyer</p>
           <SplitText
             as="h2"
             text="Acquérir une œuvre de l’exposition"

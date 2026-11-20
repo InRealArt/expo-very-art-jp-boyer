@@ -3,7 +3,7 @@ export default function Regards() {
   return (
     <section id="regards" className="bg-paper-deep py-24 lg:py-36">
       <div className="mx-auto max-w-(--container-site) px-6 lg:px-10">
-        <p className="overline">Regards sur l’œuvre</p>
+        <p className="eyebrow">Regards sur l’œuvre</p>
         <div className="mt-10 grid gap-10 lg:grid-cols-2 lg:gap-x-10 lg:gap-y-16">
           <Reveal as="figure" className="lg:col-span-2">
             <blockquote className="max-w-[40ch] font-display text-h2 font-normal italic leading-[1.2] tracking-[-0.01em] text-ink">

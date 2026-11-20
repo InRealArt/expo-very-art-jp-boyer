@@ -15,7 +15,7 @@ export default function MentionsLegales() {
       <Header />
       <main id="main" className="bg-paper pt-20">
         <div className="mx-auto max-w-(--container-site) px-6 py-24 md:px-10 lg:py-36">
-          <p className="overline">Informations légales</p>
+          <p className="eyebrow">Informations légales</p>
           <h1 className="mt-4 font-display text-h2 font-normal leading-[1.1] tracking-[-0.01em] text-ink">
             Mentions légales
           </h1>

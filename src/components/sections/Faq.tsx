@@ -35,7 +35,7 @@ export default function Faq() {
     <section id="faq" className="bg-paper py-24 lg:py-36">
       <div className="mx-auto grid max-w-(--container-site) gap-10 px-6 lg:grid-cols-12 lg:gap-16 lg:px-10">
         <div className="lg:col-span-4">
-          <p className="overline">FAQ</p>
+          <p className="eyebrow">FAQ</p>
           <h2 className="mt-4 font-display text-h2 font-normal leading-[1.1] tracking-[-0.01em] text-ink">
             Questions fréquentes
           </h2>

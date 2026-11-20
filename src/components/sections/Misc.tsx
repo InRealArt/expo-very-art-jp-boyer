@@ -25,7 +25,7 @@ export function Header() {
     <header className="fixed inset-x-0 top-0 z-50 border-b border-line bg-paper">
       <div className="mx-auto flex max-w-(--container-site) items-center justify-between gap-6 px-6 py-4 md:px-10">
         <Link href="/" className="shrink-0 whitespace-nowrap font-display text-lead text-ink">
-          Jean-Paul Boyer <span className="hidden text-ink-soft sm:inline md:hidden lg:inline">× Very Art Gallery</span>
+          Jean-Paul Boyer <span className="text-ink-soft md:hidden lg:inline">exposition</span>
         </Link>
         <nav
           className="hidden items-center gap-6 font-body text-[0.8125rem] text-ink-text md:flex"

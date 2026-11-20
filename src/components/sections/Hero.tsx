@@ -5,7 +5,7 @@ export default function Hero() {
     <section id="top" className="bg-paper">
       <div className="mx-auto grid w-full max-w-(--container-site) grid-cols-1 gap-10 px-6 pt-32 pb-24 md:px-10 lg:grid-cols-12 lg:gap-16 lg:pt-40 lg:pb-36">
         <div className="lg:col-span-7">
-          <p className="overline">Exposition · Sculpture</p>
+          <p className="eyebrow">Exposition · Sculpture</p>
           <h1 className="mt-6 font-display text-(length:--text-display) leading-[1.1] tracking-[-0.01em] text-ink">
             Jean-Paul <em className="block italic">Boyer</em>
           </h1>
@@ -17,15 +17,15 @@ export default function Hero() {
           </p>
           <dl className="mt-10 grid grid-cols-1 border-y border-line md:grid-cols-3 md:divide-x md:divide-line">
             <div className="py-4 md:px-4 md:first:pl-0">
-              <dt className="overline">Dates</dt>
+              <dt className="eyebrow">Dates</dt>
               <dd className="mt-2 text-ink-text">Du 2 au 6 décembre 2026</dd>
             </div>
             <div className="border-t border-line py-4 md:border-t-0 md:px-4">
-              <dt className="overline">Lieu</dt>
+              <dt className="eyebrow">Lieu</dt>
               <dd className="mt-2 text-ink-text">21 rue Michel Le Comte, Paris 3e</dd>
             </div>
             <div className="border-t border-line py-4 md:border-t-0 md:px-4">
-              <dt className="overline">Vernissage</dt>
+              <dt className="eyebrow">Vernissage</dt>
               <dd className="mt-2 text-ink-text">Samedi 5 décembre, 18 h</dd>
             </div>
           </dl>
