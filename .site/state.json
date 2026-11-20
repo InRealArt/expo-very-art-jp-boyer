@@ -44,6 +44,10 @@
     "build:regards": {
       "status": "done",
       "inputsHash": "ab593c0a900d8dd59f36a4fa80ca2281c44602280b23e4a8e126179625d93832"
+    },
+    "build:acquerir": {
+      "status": "done",
+      "inputsHash": "efad948ba0c1cf08f7bd73cb0ebcfa2d47fd8c44c6f13c5afe963a80f110bde4"
     }
   },
   "modules": {},
