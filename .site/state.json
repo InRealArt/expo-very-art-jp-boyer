@@ -56,6 +56,10 @@
     "build:inscription": {
       "status": "done",
       "inputsHash": "8ff640a19c6a390b3b1a01ada51384d8e02710db58597daccae1062a09765a6b"
+    },
+    "page": {
+      "status": "done",
+      "inputsHash": "1566ac051e044c5430f4748031b4f123380a30eedb3a7343c69f1cdb95ebdd9b"
     }
   },
   "modules": {},

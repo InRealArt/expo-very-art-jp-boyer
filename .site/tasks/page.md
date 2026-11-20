@@ -1,0 +1,3 @@
+# Task: page
+Project root: /home/gilles/DEV/IN_REAL_ART/expo-very-art-jp-boyer. Read `.site/design.md`, `.site/sections.json`, `src/app/page.tsx` and the components in `src/components/sections/`.
+Compose `src/app/page.tsx` from the section components. Order from sections.json: Misc (SkipLink + Header: use the named exports SkipLink, Header, Footer from Misc.tsx), then in `<main id="main">`: Hero, LExposition, Mosaique, LArtiste, Regards, Acquerir, Visite, Inscription, Faq; then Footer. Leave room for the fixed header if design.md says so. Remove the create-next-app leftovers. Do not edit other files.
