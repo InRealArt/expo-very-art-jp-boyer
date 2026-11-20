@@ -16,6 +16,10 @@
     },
     "forms": {
       "status": "done"
+    },
+    "build:hero": {
+      "status": "done",
+      "inputsHash": "c615e65af6faac74f4b9905bfc61a843166ec7e7c5b4a0ab3aac48ce8479b61b"
     }
   },
   "modules": {},

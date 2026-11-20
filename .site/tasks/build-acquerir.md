@@ -1,0 +1,3 @@
+# Task: build section acquerir
+Project root: /home/gilles/DEV/IN_REAL_ART/expo-very-art-jp-boyer. Read `/home/gilles/DEV/IN_REAL_ART/expo-very-art-jp-boyer/.site/design.md` and `/home/gilles/DEV/IN_REAL_ART/expo-very-art-jp-boyer/.site/sections/acquerir.html`.
+Convert the section `acquerir` to a Tailwind + React Server Component in `src/components/sections/` (file name in PascalCase from the section name). Follow design.md (tokens only, no raw colors, block for this section). Keep wording and structure of the template. Images: use the template's paths/placeholders. Scripts set aside in `.site/scripts.json` are not ported (FAQ toggle may use native details/summary or a small client component).
