@@ -48,6 +48,10 @@
     "build:acquerir": {
       "status": "done",
       "inputsHash": "efad948ba0c1cf08f7bd73cb0ebcfa2d47fd8c44c6f13c5afe963a80f110bde4"
+    },
+    "build:faq": {
+      "status": "done",
+      "inputsHash": "fb71b8d2a5523b885638cb76cb28438d8639efed532a2b8bac894afd5e4d5607"
     }
   },
   "modules": {},
