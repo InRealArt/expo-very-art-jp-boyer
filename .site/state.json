@@ -28,6 +28,10 @@
     "build:misc": {
       "status": "done",
       "inputsHash": "fa7c2527c8dd07cafad1831973c7efcbf0bdda573f3e49b3932f01b04f42bccb"
+    },
+    "build:mosaique": {
+      "status": "done",
+      "inputsHash": "cadd55699190c611d1e0067bc73bb2bd75c530af843ec3317f877cc1c3b5f119"
     }
   },
   "modules": {},
