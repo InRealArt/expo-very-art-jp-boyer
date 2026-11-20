@@ -32,6 +32,10 @@
     "build:mosaique": {
       "status": "done",
       "inputsHash": "cadd55699190c611d1e0067bc73bb2bd75c530af843ec3317f877cc1c3b5f119"
+    },
+    "build:visite": {
+      "status": "done",
+      "inputsHash": "844793d0618e3691a2dafdd9f0ee6b77456de6f3fa9fd4eacf5316b080b744db"
     }
   },
   "modules": {},
