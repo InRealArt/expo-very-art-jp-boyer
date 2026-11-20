@@ -5,7 +5,7 @@ const items: { q: string; a: React.ReactNode }[] = [
   },
   {
     q: "Quels sont les horaires d’ouverture ?",
-    a: "L’exposition est ouverte du mercredi 2 au dimanche 6 décembre 2026, [horaires d’ouverture]. Le vernissage a lieu le samedi 5 décembre à 18 h.",
+    a: "L’exposition est ouverte du mercredi 2 au dimanche 6 décembre 2026, de 12 h à 19 h. Le vernissage a lieu le samedi 5 décembre à 18 h.",
   },
   {
     q: "Où se situe la Very Art Gallery ?",

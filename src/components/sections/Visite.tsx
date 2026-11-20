@@ -11,7 +11,7 @@ const infos: { dt: string; dd: React.ReactNode }[] = [
     ),
   },
   { dt: "Dates", dd: "Du mercredi 2 au dimanche 6 décembre 2026" },
-  { dt: "Horaires", dd: "[Horaires d’ouverture]" },
+  { dt: "Horaires", dd: "Du mercredi au dimanche, de 12 h à 19 h" },
   { dt: "Vernissage", dd: "Samedi 5 décembre 2026 à 18 h, sur inscription" },
   { dt: "Accès", dd: "Métro Rambuteau (ligne 11) ou Arts et Métiers (lignes 3 et 11)" },
   {
