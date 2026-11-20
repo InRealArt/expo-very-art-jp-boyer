@@ -5,6 +5,10 @@
     "scaffold": {
       "status": "done",
       "inputsHash": "4cb77ede96722c9fa325b70c9c61f54b1d198cc33651165b5d19d84bb2f92460"
+    },
+    "design": {
+      "status": "done",
+      "inputsHash": "77b6c47937795dd1945b0a986015c21d6476506fab56215e2289617dcf38a977"
     }
   },
   "modules": {},

@@ -14,6 +14,8 @@ source:
 
 # Direction artistique reprise du template.
 da:
+  source:
+    text: "Galerie d'art sobre : fond ivoire chaud (#FAF9F8), texte presque noir, un seul accent or (#805F19, #C9A961 sur fond sombre), titres en Playfair Display, corps en Plus Jakarta Sans, angles droits, cartes blanches fines bordures, boutons noirs en capitales espacées."
   mood: "Galerie sobre, fond ivoire chaud, un seul accent or, titres en serif élégant, angles droits"
   palette:
     bg: "#FAF9F8"

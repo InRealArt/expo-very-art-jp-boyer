@@ -1,0 +1,34 @@
+{
+  "source": {
+    "type": "text",
+    "ref": "Galerie d'art sobre : fond ivoire chaud (#FAF9F8), texte presque noir, un seul accent or (#805F19, #C9A961 sur fond sombre), titres en Playfair Display, corps en Plus Jakarta Sans, angles droits, cartes blanches fines bordures, boutons noirs en capitales espacées."
+  },
+  "mood": "Galerie sobre et silencieuse : ivoire chaud, encre presque noire, un seul accent or, serif élégant et angles droits.",
+  "colors": {
+    "ivory": "#faf9f8",
+    "ivory-deep": "#f5f4f0",
+    "white": "#ffffff",
+    "ink": "#0f0e0d",
+    "ink-text": "#3d3a36",
+    "ink-muted": "#6f6a63",
+    "line": "#e4e1da",
+    "gold": "#805f19",
+    "gold-light": "#c9a961"
+  },
+  "fonts": {
+    "display": "Playfair Display",
+    "body": "Plus Jakarta Sans",
+    "extra": []
+  },
+  "easings": [
+    "cubic-bezier(0.16, 1, 0.3, 1)"
+  ],
+  "components": {
+    "card": "background: #ffffff; border: 1px solid #e4e1da; border-radius: 0; box-shadow: none",
+    "btn": "background: #0f0e0d; color: #faf9f8; border: 1px solid #0f0e0d; border-radius: 0; text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.75rem; font-weight: 600; padding: 1rem 2rem",
+    "link": "color: #805f19; text-decoration: underline; text-underline-offset: 0.2em"
+  },
+  "warnings": [
+    "Profil issu d'une description texte : seules les valeurs citées sont certaines, les teintes secondaires (ivory-deep, ink-text, ink-muted, line) sont reprises du brief."
+  ]
+}
