@@ -37,8 +37,17 @@ export async function submitInscription(_previous: FormState, formData: FormData
     schema,
     turnstile: {
       action: "inscription",
-      // The site and its www form; in development the page is served from localhost too. SITE_HOSTNAME overrides, commas separate several names.
-      hostname: env.SITE_HOSTNAME ?? (process.env.NODE_ENV === 'production' ? "boyer-sculpture.fr,www.boyer-sculpture.fr" : "boyer-sculpture.fr,www.boyer-sculpture.fr,localhost"),
+      // The site and its www form, plus the host Vercel serves this deployment from; in development the page is served from localhost too.
+      // SITE_HOSTNAME overrides everything, commas separate several names.
+      hostname:
+        env.SITE_HOSTNAME ??
+        [
+          process.env.NODE_ENV === 'production' ? "boyer-sculpture.fr,www.boyer-sculpture.fr" : "boyer-sculpture.fr,www.boyer-sculpture.fr,localhost",
+          process.env.VERCEL_PROJECT_PRODUCTION_URL,
+          process.env.VERCEL_URL,
+        ]
+          .filter(Boolean)
+          .join(','),
       secret: env.TURNSTILE_SECRET_KEY,
     },
     limiter,

@@ -32,7 +32,10 @@ export async function handleForm(a: HandleFormArgs): Promise<FormResult> {
   if ((raw[HONEYPOT_FIELD] ?? '').trim() !== '') return { ok: true }
 
   const parsed = a.schema.safeParse(raw)
-  if (!parsed.success) return { ok: false, error: 'invalid' }
+  if (!parsed.success) {
+    console.error('form validation failed:', parsed.error.issues.map((i) => i.path.join('.') + ': ' + i.message).join('; '))
+    return { ok: false, error: 'invalid' }
+  }
   const { [TURNSTILE_FIELD]: token, ...submitted } = parsed.data as Record<string, string>
   const data = Object.fromEntries(Object.entries(submitted).filter(([key]) => key !== HONEYPOT_FIELD))
 
@@ -43,11 +46,15 @@ export async function handleForm(a: HandleFormArgs): Promise<FormResult> {
     expectedAction: a.turnstile.action,
     expectedHostname: a.turnstile.hostname,
   })
-  if (!check.ok) return { ok: false, error: 'captcha' }
+  if (!check.ok) {
+    console.error('turnstile check failed:', check.reason)
+    return { ok: false, error: 'captcha' }
+  }
 
   try {
     await a.send(data)
-  } catch {
+  } catch (error) {
+    console.error('form send failed:', error instanceof Error ? error.message : error)
     return { ok: false, error: 'mail' }
   }
   return { ok: true }
