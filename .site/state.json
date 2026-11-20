@@ -36,6 +36,10 @@
     "build:visite": {
       "status": "done",
       "inputsHash": "844793d0618e3691a2dafdd9f0ee6b77456de6f3fa9fd4eacf5316b080b744db"
+    },
+    "build:l-artiste": {
+      "status": "done",
+      "inputsHash": "b11f13259afa22e59b4e3408a3852633d9199499c4ff3eedc292a64f78c3bf78"
     }
   },
   "modules": {},
