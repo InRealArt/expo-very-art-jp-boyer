@@ -9,6 +9,10 @@
     "design": {
       "status": "done",
       "inputsHash": "77b6c47937795dd1945b0a986015c21d6476506fab56215e2289617dcf38a977"
+    },
+    "layout": {
+      "status": "done",
+      "inputsHash": "bcdbc0ddc846b57f9992965b7340e4cc33b0933d42244ed1c86fb550d02317d7"
     }
   },
   "modules": {},
