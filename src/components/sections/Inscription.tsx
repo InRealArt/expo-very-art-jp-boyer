@@ -2,13 +2,8 @@
 
 import { SecureForm } from "@/components/forms/SecureForm";
 import { submitInscription } from "@/app/actions/inscription";
+import { demandes } from "@/lib/inscription-demandes";
 
-const demandes = [
-  "Venir au vernissage (samedi 5 décembre, 18 h)",
-  "Organiser une visite avec l’artiste",
-  "Information sur une œuvre",
-  "Autre demande",
-];
 
 const personnes = ["1", "2", "3", "4"];
 

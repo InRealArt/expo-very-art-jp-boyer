@@ -6,6 +6,7 @@ import { handleForm } from '@/lib/forms/action'
 import { makeSender } from '@/lib/forms/mail'
 import { buildFormSchema, type FieldDef } from '@/lib/forms/schema'
 import type { FormState } from '@/lib/forms/state'
+import { demandes } from '@/lib/inscription-demandes'
 import { createRateLimiter } from '@/lib/rate-limit'
 
 const fields: FieldDef[] = [
@@ -13,7 +14,7 @@ const fields: FieldDef[] = [
   {"name":"nom","type":"text","required":true,"max":80,"label":"Nom"},
   {"name":"email","type":"email","required":true,"max":254,"label":"E-mail"},
   {"name":"telephone","type":"tel","required":false,"max":30,"label":"Téléphone"},
-  {"name":"demande","type":"select","required":true,"max":45,"options":["Venir au vernissage (samedi 5 décembre, 18 h)","Organiser une visite avec l'artiste","Information sur une œuvre","Autre demande"],"label":"Votre demande"},
+  {"name":"demande","type":"select","required":true,"max":45,"options":demandes,"label":"Votre demande"},
   {"name":"personnes","type":"select","required":true,"max":1,"options":["1","2","3","4"],"label":"Nombre de personnes"},
   {"name":"message","type":"textarea","required":false,"max":2000,"label":"Message (facultatif)"},
   {"name":"consentement","type":"consent","required":true,"max":3,"label":"J'accepte que mes données soient utilisées pour répondre à ma demande."},
