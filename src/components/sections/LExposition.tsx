@@ -18,7 +18,7 @@ export default function LExposition() {
             Né en France en 1942, Jean-Paul Boyer fait de l’air et du vide une partie de la sculpture. Pour cette exposition à la Very Art Gallery, il présente six sculptures récentes en acier laqué, de 42 à 100 cm : volutes, éventails et sphères ajourées que la lumière traverse.
           </p>
           <p className="max-w-[65ch]">
-            [Deux ou trois phrases sur le propos de l’exposition : ce qui relie les œuvres, ce qu’elle montre de neuf.] L’exposition ouvre le mercredi 2 décembre et se termine le dimanche 6 décembre, avec un vernissage en présence de l’artiste le samedi 5 décembre à 18 h.
+            L’exposition ouvre le mercredi 2 décembre et se termine le dimanche 6 décembre, avec un vernissage en présence de l’artiste le samedi 5 décembre à 18 h.
           </p>
           </Reveal>
           <div className="grid grid-cols-1 gap-6 border-t border-line pt-8 sm:grid-cols-3 sm:gap-0">
